@@ -8,6 +8,7 @@ var app = angular.module('appname', [dependencies]);
         this.products = gems;
     });
 
+// MODEL
     var gems = [{
         name: 'Azurite',
         description: "Some gems have hidden qualities beyond their luster, beyond their shine... Azurite is one of those gems.",
