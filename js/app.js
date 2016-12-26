@@ -20,6 +20,14 @@ var app = angular.module('appname', [dependencies]);
         };
     });
 
+    app.controller('GalleryController', function() {
+        this.imageIndex = 0;
+        this.currentImageChange = function(imageNumber) {
+            console.log(imageNumber);
+            this.imageIndex = imageNumber || 0;
+        };
+    });
+
     // MODEL
     var gems = [{
         name: 'Azurite',
