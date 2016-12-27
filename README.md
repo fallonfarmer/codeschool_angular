@@ -1,6 +1,6 @@
 AngularJS training from [CodeSchool](https://www.codeschool.com/courses/shaping-up-with-angular-js)
 
-- Getting Setup with Modules on Controllers
+- Getting Setup with Modules & Controllers
 - Built-in Directives
 - Formatting Tabs
 - Creating Forms and Binding Data
