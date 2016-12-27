@@ -1,0 +1,83 @@
+<section>
+    <!-- Tab Navigation -->
+    <ul class="nav nav-pills">
+        <li ng-class="{ active:panel.isSelected(1) }">
+            <a href ng-click="panel.selectTab(1)">Description</a>
+        </li>
+        <li ng-class="{ active:panel.isSelected(2) }">
+            <a href ng-click="panel.selectTab(2)">Specifications</a>
+        </li>
+        <li ng-class="{ active:panel.isSelected(3) }">
+            <a href ng-click="panel.selectTab(3)">Reviews</a>
+        </li>
+    </ul>
+    <!-- Tab Contents -->
+    <!-- 1. Descriptions-->
+    <div class="panel" ng-show="panel.isSelected(1)">
+        <h4>Description</h4>
+        <blockquote>{{ product.description }}</blockquote>
+    </div>
+    <!-- 2. Specifications-->
+    <div class="panel" ng-show="panel.isSelected(2)">
+        <h4>Specifications</h4>
+        <blockquote>
+            <p><b>Shine:</b> {{ product.shine }}</p>
+            <p><b>Rarity:</b> {{ product.rarity }}</p>
+            <p><b>Color:</b> {{ product.color }}</p>
+            <p><b>Faces:</b> {{ product.faces }}</p>
+        </blockquote>
+    </div>
+    <!-- 3. Reviews-->
+    <div class="panel" ng-show="panel.isSelected(3)">
+        <!-- Review list -->
+        <ul>
+            <h4>Reviews</h4>
+            <!-- Review list item-->
+            <li ng-repeat="review in product.reviews">
+                <blockquote>
+                    <b>Stars: {{review.stars}}</b>
+                    - {{review.body}}<br>
+                    <cite class="clearfix">by: {{review.author}}</cite>
+                </blockquote>
+            </li>
+        </ul>
+
+        <form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
+
+            Live preview
+            <blockquote>
+                <b>Stars: {{reviewCtrl.review.stars}}</b>
+                - {{reviewCtrl.review.body}}<br>
+                <cite class="clearfix">by: {{reviewCtrl.review.author}}</cite>
+            </blockquote>
+
+            <h4>Submit a Review</h4>
+
+            <!-- reviewForm: STARS -->
+            <fieldset class="form-group">
+                <select ng-model="reviewCtrl.review.stars" required class="form-control" ng-options="stars for stars in [5,4,3,2,1]" title="Stars">
+                    <option value="">Rate the Product</option>
+                </select>
+            </fieldset>
+
+            <!-- reviewForm: TEXT -->
+            <fieldset class="form-group">
+                <textarea ng-model="reviewCtrl.review.body" required class="form-control" placeholder="Write a short review of the product..." title="Review"></textarea>
+            </fieldset>
+
+            <!-- reviewForm: EMAIL -->
+            <fieldset class="form-group">
+                <input ng-model="reviewCtrl.review.author" required type="email" class="form-control" placeholder="email@domain.com" title="Email" />
+            </fieldset>
+
+            <!-- Validation -->
+            <div> reviewForm is {{reviewForm.$valid}} </div>
+
+            <!-- reviewForm: SUBMIT -->
+            <fieldset class="form-group">
+                <input type="submit" class="btn btn-primary pull-right" value="Submit Review" />
+            </fieldset>
+
+        </form>
+    </div>
+</section>
