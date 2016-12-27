@@ -4,6 +4,7 @@ var app = angular.module('appname', [dependencies]);
 (function() {
     var app = angular.module('store', []);
 
+    // CONTROLLERS
     app.controller('StoreController', function() {
         this.products = gems;
     });
@@ -16,15 +17,24 @@ var app = angular.module('appname', [dependencies]);
         };
 
         this.isSelected = function(checkTab) {
-            return this.tab === checkTab;
+            return (this.tab === checkTab);
         };
     });
 
     app.controller('GalleryController', function() {
         this.imageIndex = 0;
+
         this.currentImageChange = function(imageNumber) {
-            console.log(imageNumber);
-            this.imageIndex = imageNumber || 0;
+            this.imageIndex = imageNumber || 0; //sets to zero if null
+        };
+    });
+
+    app.controller('ReviewController', function(){
+        this.review = {};
+
+        this.addReview = function(product) {
+          product.reviews.push(this.review); //add new review into product
+          this.review = {}; //clears the form and hides live preview
         };
     });
 
