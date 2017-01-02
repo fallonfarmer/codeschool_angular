@@ -9,4 +9,4 @@ AngularJS training from [CodeSchool](https://www.codeschool.com/courses/shaping-
 - Services
 
 Finished product:
-![screenshot.png]
+![Training site](screenshot.png)
