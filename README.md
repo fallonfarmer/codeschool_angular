@@ -7,3 +7,6 @@ AngularJS training from [CodeSchool](https://www.codeschool.com/courses/shaping-
 - Validating Forms
 - Custom Directives
 - Services
+
+Finished product:
+![screenshot.png]
