@@ -2,7 +2,7 @@
 var app = angular.module('appname', [dependencies]);
 */
 (function() {
-    var app = angular.module('store', []);
+    var app = angular.module('store', ['store-products']);
 
     // CONTROLLERS
     app.controller('StoreController', function() {
@@ -24,33 +24,6 @@ var app = angular.module('appname', [dependencies]);
         this.addReview = function(product) {
           product.reviews.push(this.review); //add new review into product
           this.review = {}; //clears the form and hides live preview
-        };
-    });
-
-    // DIRECTIVES
-    app.directive('productTitle', function() {
-        return {
-            restrict: 'E',
-            templateUrl: '../templates/product-title.html'
-        };
-    });
-
-    app.directive('productPanels', function() {
-        return {
-            restrict: 'E',
-            templateUrl: '../templates/product-panels.html',
-            controller: function(){
-                this.tab = 1;
-
-                this.selectTab = function(setTab) {
-                    this.tab = setTab;
-                };
-
-                this.isSelected = function(checkTab) {
-                    return (this.tab === checkTab);
-                };
-            },
-            controllerAs: 'panel'
         };
     });
 
